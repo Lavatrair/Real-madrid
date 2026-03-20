@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            box-shadow: 3px 3px black;
+        }
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jugadores del Real Madrid</h1>
+    <div id="contenedor">
+
+    </div>
+
+    <script>
+    let jugadores=[
+        {
+            nombre:"Mbappe",
+            edad: 28,
+            ficha:20000,
+            foto: "mbappe.jpg"
+        },
+
+        {
+            nombre:"raul",
+            edad: 48,
+            ficha:20000,
+            foto: "raul.jpg"
+        },
+
+         {
+            nombre:"tragueño",
+            edad: 40,
+            ficha:40000,
+            foto: "tragueño.jpg"
+        },
+
+         {
+            nombre:"zidane",
+            edad: 42,
+            ficha:30000,
+            foto: "zidane.jpg"
+        },
+    ]
+
+    for (let i=0; i<jugadores.length; i++) {
+        nombreJugador=jugadores[i].nombre;
+        edadJugador=jugadores[i].edad;
+        fichaJugador=jugadores[i].ficha;
+        fotoJugador=jugadores[i].foto
+
+        nuevaCaja=document.createElement("div");
+        nuevoH1=document.createElement("h1");
+        nuevoH1.innerHTML=nombreJugador;
+        nuevaCaja.appendChild(nuevoH1);
+       
+        nuevoH2=document.createElement("h2");
+        nuevoH2.innerHTML="Edad:"+edadJugador
+        nuevaCaja.appendChild(nuevoH2);
+
+        nuevoH3=document.createElement("h3");
+        nuevoH3.innerHTML="Ficha"+fichaJugador;
+        nuevaCaja.appendChild(nuevoH3);
+        
+        nuevaFoto=document.createElement("img");
+        nuevaFoto.src = "images/" + fotoJugador;
+        nuevaCaja.appendChild(nuevaFoto);
+        
+
+        document.getElementById("contenedor").appendChild(nuevaCaja);
+    
+    }
+    </script>
+</body>
+</html>
