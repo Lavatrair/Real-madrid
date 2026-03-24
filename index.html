@@ -11,41 +11,64 @@
         img {
             width: 200px;
         }
+
+        #contenedor {
+            background-color: purple;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            
+        }
+
+        #contenedor div {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        table#tabla-jugadores, td {
+            border: 2px solid purple;
+            border-collapse: collapse;
+        }
     </style>
 </head>
 <body>
     <h1>Jugadores del Real Madrid</h1>
+    <audio src="https://soundcloud.com/ramosalah/hala-madrid?utm_source=clipboard&utm_campaign=wtshare&utm_medium=widget&utm_content=https%253A%252F%252Fsoundcloud.com%252Framosalah%252Fhala-madrid">EL himno</audio>
     <div id="contenedor">
 
     </div>
 
+    <table id="tabla-jugadores">
+
+    </table>
     <script>
     let jugadores=[
         {
             nombre:"Mbappe",
             edad: 28,
-            ficha:20000,
+            ficha: 20000,
             foto: "mbappe.jpg"
         },
 
         {
             nombre:"raul",
             edad: 48,
-            ficha:20000,
+            ficha: 20000,
             foto: "raul.jpg"
         },
 
          {
             nombre:"tragueño",
             edad: 40,
-            ficha:40000,
+            ficha: 40000,
             foto: "tragueño.jpg"
         },
 
          {
             nombre:"zidane",
             edad: 42,
-            ficha:30000,
+            ficha: 30000,
             foto: "zidane.jpg"
         },
     ]
@@ -76,6 +99,50 @@
 
         document.getElementById("contenedor").appendChild(nuevaCaja);
     
+    }
+
+    let nuevoTRCCabecera=document.createElement("tr");
+    let cabeceraNombre=document.createElement("th");
+    cabeceraNombre.innerHTML="Nombre";
+    nuevoTRCCabecera.appendChild(cabeceraNombre);
+
+    let cabeceraEdad=document.createElement("th");
+    cabeceraEdad.innerHTML="Edad";
+    nuevoTRCCabecera.appendChild(cabeceraEdad);
+
+    tdFoto=document.createElement("td");
+    tdFoto.innerHTML="foto";
+    nuevoTRCCabecera.appendChild(tdFoto);
+
+
+    
+
+    // añado la fila a la tabla
+    document.getElementById("tabla-jugadores").appendChild(nuevoTRCCabecera);
+
+    for (jugador of jugadores) {
+         let nuevoTR=document.createElement("tr");
+         //creo un td para el nombre y lo agrego al tr
+
+         let tdNombre=document.createElement("td");
+         tdNombre.innerHTML= jugador.nombre;
+         nuevoTR.appendChild(tdNombre);
+
+
+         let tdEdad=document.createElement("td");
+         tdEdad.innerHTML= jugador.edad;
+         nuevoTR.appendChild(tdEdad);
+
+
+          let tdFoto=document.createElement("td");
+          nuevaFoto = document.createElement("img");
+          nuevaFoto.src = "images/" + jugador.foto;
+         tdFoto.appendChild(nuevaFoto);
+         
+         nuevoTR.appendChild(tdFoto);
+        // añado a la tabla
+
+         document.getElementById("tabla-jugadores").appendChild(nuevoTR);
     }
     </script>
 </body>
